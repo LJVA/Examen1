@@ -43,9 +43,9 @@ class usuarioServicios {
     
     public function cambiarEstado($usuario){
         $this->DB->getConeccion();
-        $sql = "UPDATE USUARIOS SET CEDULA = ?, NOMBRE = ?, TELEFONO = ?, CORREO = ?, PASSWORD = ?, DIRECCION = ?, ESTADO = ?, ROL = ? WHERE ID = ?";
-        $tipos = 'ssisssisi';
-        $valores = array($usuario->getCedula(),$usuario->getNombre(),$usuario->getTelefono(),$usuario->getCorreo(),$usuario->getPassword(),$usuario->getDireccion(),$usuario->getEstado(),$usuario->getRol(),$usuario->getId());
+        $sql = "UPDATE USUARIOS SET ESTADO = ? WHERE ID = ?";
+        $tipos = 'ii';
+        $valores = array($usuario->getEstado(),$usuario->getId());
         $this->DB->executeQuery($sql, $tipos, $valores);
         $this->DB->cerrarConeccion();
     }

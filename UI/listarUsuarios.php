@@ -17,7 +17,6 @@
                 <th>ESTADO</th>
                 <th>ROL</th>
                 <th></th>
-                <th></th>
             </tr>
         </thead>
         <tbody>

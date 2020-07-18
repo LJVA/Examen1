@@ -41,17 +41,14 @@ if(isset($_POST['accion'])){
                 $servicio = new usuarioServicios();
                 $usuario = $servicio->buscarXcodigo($codigo);
                 
-                var_dump($usuario);
-                echo '<hr>';
-                if($usuario->getEstado() == "0"){
-                    $usuario->setEstado("1");
+                if($usuario->getEstado() == 0){
+                    $usuario->setEstado(1);
                 }else{
-                    $usuario->setEstado("0");
+                    $usuario->setEstado(0);
                 }
-                
-                var_dump($usuario);
-                die();
+         
                 $servicio->cambiarEstado($usuario);
+                header('location:../index.php');
                 break;
      }
  }

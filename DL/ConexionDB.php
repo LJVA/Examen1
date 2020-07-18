@@ -8,8 +8,8 @@ class ConexionDB {
     private $baseDatos = 'tanuki'; 
     private $coneccion;
     
-    public function __construct() {         
-       if($this->coneccion == null){
+    public function __construct() {     
+        if($this->coneccion == null){
            $this->abrirConeccion();
        }
     }
@@ -24,7 +24,7 @@ class ConexionDB {
     
     public function getConeccion(){        
         if($this->coneccion == null){
-            abrirConeccion();
+            $this->abrirConeccion();
         }
       return $this->coneccion;
     }
@@ -57,6 +57,7 @@ class ConexionDB {
     
     public function cerrarConeccion(){
        $this->coneccion->close();
+       $this->coneccion=null;
     }
     
 }
